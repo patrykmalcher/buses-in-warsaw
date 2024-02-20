@@ -1,23 +1,15 @@
 import json
-import time
-from datetime import datetime
+from dataclasses import asdict
 
 from WarsawAPIFeignClient import WarsawAPIFeignClient
+from WarsawAPIDataCollector import WarsawAPIDataCollector
 
 api_key = '2d6eb6a3-69a0-4401-95ff-4b2005d24512'
 client = WarsawAPIFeignClient(api_key)
+collector = WarsawAPIDataCollector(client, 10, 360)
+bus_data_list = collector.scrape()
 
-counter = 0
+json_data = json.dumps([asdict(bus_data) for bus_data in bus_data_list])
 
-while counter < 60:
-    print(f"Loop {counter + 1}")
-    counter += 1
-
-    data_dict = client.get_bus_data()
-    current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    file_path = f"data/{current_time}.json"
-
-    with open(file_path, "w") as f:
-        json.dump(data_dict, f)
-
-    time.sleep(60)
+with open('../night_data.json', 'w') as json_file:
+    json_file.write(json_data)
