@@ -7,7 +7,7 @@ from DataAnalyzer import DataAnalyzer
 
 from common.BusData import BusData
 
-with open('../night_data.json', 'r') as json_file:
+with open('../day_data.json', 'r') as json_file:
     json_data = json.load(json_file)
 
 bus_data_list = [BusData(**item) for item in json_data]
@@ -27,4 +27,4 @@ heat_data = [[point[0], point[1]] for point in points]
 HeatMap(heat_data, radius=15).add_to(map_warsaw)
 
 # Save the map to an HTML file
-map_warsaw.save("../warsaw_heatmap.html")
+map_warsaw.save("../warsaw_heatmap_day.html")

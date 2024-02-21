@@ -11,5 +11,5 @@ bus_data_list = collector.scrape()
 
 json_data = json.dumps([asdict(bus_data) for bus_data in bus_data_list])
 
-with open('../night_data.json', 'w') as json_file:
+with open('../day_data.json', 'w') as json_file:
     json_file.write(json_data)
