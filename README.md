@@ -18,7 +18,11 @@ It can be used to collect data and save it to the file.
 
 ### Installation
 
-TODO
+```
+make setup
+. venv/bin/activate
+pip install .
+```
 
 ### Usage
 

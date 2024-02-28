@@ -4,3 +4,5 @@ src/main/datacollector/__pycache__
 src/test/datacollector/__pycache__/
 notebook/.ipynb_checkpoints
 venv/
+src/main/datacollector/datacollector.egg-info/
+src/main/datacollector.egg-info/
