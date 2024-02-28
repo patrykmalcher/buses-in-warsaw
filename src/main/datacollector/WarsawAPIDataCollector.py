@@ -6,12 +6,20 @@ from dataclasses import asdict
 from src.main.datacollector.BusData import BusData
 
 
+# Main class responsible for collecting the data.
 class WarsawAPIDataCollector:
+    # client - feign client used to communicate with API
+    # scrape_interval - time in seconds between consecutive scrapes
+    # scrape_count - number of scrapes to perform
     def __init__(self, client, scrape_interval, scrape_count):
         self.client = client
         self.scrape_interval = scrape_interval
         self.scrape_count = scrape_count
 
+    # Returns the JSON with array of records from all scrapes performed
+    # represented as a string.
+    # Repetitions are removed.
+    # Useful communicates are logged.
     def scrape(self):
         counter = 0
         bus_data = set()
