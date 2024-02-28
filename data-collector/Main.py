@@ -6,9 +6,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 api_key = '2d6eb6a3-69a0-4401-95ff-4b2005d24512'
 client = WarsawAPIFeignClient(api_key)
-collector = WarsawAPIDataCollector(client, 1, 10)
+collector = WarsawAPIDataCollector(client, 1, 3600)
 
 json_data = collector.scrape()
 
-with open('test.json', 'w') as json_file:
+with open('night_data.json', 'w') as json_file:
     json_file.write(json_data)
