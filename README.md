@@ -46,7 +46,7 @@ Done in the notebook.
 
 ## Code quality
 
-Checked by `python3 -m flake8 data-collector/`
+Checked by `python3 -m flake8 src`
 
 ---
 
