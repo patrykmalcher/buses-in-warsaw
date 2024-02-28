@@ -3,7 +3,7 @@ import time
 import json
 from dataclasses import asdict
 
-from BusData import BusData
+from src.main.datacollector.BusData import BusData
 
 
 class WarsawAPIDataCollector:
