@@ -4,7 +4,6 @@ from src.main.datacollector.WarsawAPIFeignClient import WarsawAPIFeignClient
 
 
 class WarsawAPIFeignClientTest(unittest.TestCase):
-
     def setUp(self):
         self.api_key = 'mock'
         self.client = WarsawAPIFeignClient(self.api_key)
