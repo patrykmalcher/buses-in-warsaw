@@ -1,7 +1,9 @@
 import logging
 import time
+import json
+from dataclasses import asdict
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+from BusData import BusData
 
 
 class WarsawAPIDataCollector:
@@ -18,8 +20,18 @@ class WarsawAPIDataCollector:
             logging.info(f"Scrape {counter + 1}")
             counter += 1
 
-            bus_data.update(set(self.client.get_bus_data()))
+            response = self.client.get_bus_data()
+
+            bus_data_scrape = []
+
+            if response.status_code == 200 and isinstance(response.json().get('result'), list):
+                result_list = response.json().get('result', [])
+                bus_data_scrape = [BusData(**item) for item in result_list]
+            else:
+                logging.warn("No data in a response.")
+
+            bus_data.update(set(bus_data_scrape))
 
             time.sleep(self.scrape_interval)
 
-        return list(bus_data)
+        return json.dumps([asdict(bus_data) for bus_data in list(bus_data)])
