@@ -6,3 +6,4 @@ notebook/.ipynb_checkpoints
 venv/
 src/main/datacollector/datacollector.egg-info/
 src/main/datacollector.egg-info/
+build/
