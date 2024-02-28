@@ -4,7 +4,7 @@
 
 ## Description
 
-Aim of the project is to collect data about buses in Warsaw and analyse them.
+Aim of the project is to collect information about buses in Warsaw and analyse it.
 <br>
 Project is composed of 2 parts:
 1. Data collector
