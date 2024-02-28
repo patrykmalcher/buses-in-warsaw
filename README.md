@@ -62,4 +62,6 @@ Checked by `python3 -m flake8 src`
 
 ## Profiler
 
-TODO
+The most CPU consuming part of the project is part of the data analysis related to finding locations with high speeding rate.
+<br>
+Run on around 200 000 of points it takes More than a minute to finish calculation.
