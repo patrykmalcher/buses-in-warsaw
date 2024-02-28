@@ -3,16 +3,16 @@ from unittest.mock import Mock
 from src.main.datacollector.WarsawAPIFeignClient import WarsawAPIFeignClient
 
 
-class TestWarsawAPIFeignClient(unittest.TestCase):
+class WarsawAPIFeignClientTest(unittest.TestCase):
 
     def setUp(self):
-        self.api_key = 'your_api_key'
+        self.api_key = 'mock'
         self.client = WarsawAPIFeignClient(self.api_key)
 
     def test_get_bus_data(self):
         mock_response = Mock()
         mock_response.status_code = 200
-        mock_response.json.return_value = {'result': 'bus data here'}
+        mock_response.json.return_value = {'result': 'bus data'}
 
         with (unittest.mock.patch('requests.get', return_value=mock_response)
               as mock_get):
@@ -25,7 +25,7 @@ class TestWarsawAPIFeignClient(unittest.TestCase):
                     'type': 1}
         )
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json(), {'result': 'bus data here'})
+        self.assertEqual(response.json(), {'result': 'bus data'})
 
 
 if __name__ == '__main__':
