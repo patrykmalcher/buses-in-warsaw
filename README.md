@@ -52,7 +52,7 @@ Checked by `python3 -m flake8 data-collector/`
 
 ## Tests
 
-TODO
+`make test`
 
 ---
 
