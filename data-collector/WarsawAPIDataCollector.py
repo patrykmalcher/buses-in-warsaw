@@ -24,10 +24,10 @@ class WarsawAPIDataCollector:
 
             bus_data_scrape = []
 
-            if response.status_code == 200 and isinstance(response.json().get('result'), list):
+            if (response.status_code == 200 and
+                    isinstance(response.json().get('result'), list)):
                 result_list = response.json().get('result', [])
                 bus_data_scrape = [BusData(**item) for item in result_list]
-                bus
             else:
                 logging.warn("No data in a response.")
 
