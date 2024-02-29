@@ -11,5 +11,5 @@ collector = WarsawAPIDataCollector(client, 5, 720)
 
 json_data = collector.scrape()
 
-with open('noon_data.json', 'w') as json_file:
+with open('../../../notebook/data/2.30-3.30.json', 'w') as json_file:
     json_file.write(json_data)
