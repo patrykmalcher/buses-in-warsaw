@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.INFO,
 
 api_key = '2d6eb6a3-69a0-4401-95ff-4b2005d24512'
 client = WarsawAPIFeignClient(api_key)
-collector = WarsawAPIDataCollector(client, 1, 3600)
+collector = WarsawAPIDataCollector(client, 5, 720)
 
 json_data = collector.scrape()
 
