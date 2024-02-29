@@ -27,11 +27,12 @@ pip install .
 ### Usage
 
 ```python
-from WarsawAPIFeignClient import WarsawAPIFeignClient
-from WarsawAPIDataCollector import WarsawAPIDataCollector
+from datacollector.WarsawAPIFeignClient import WarsawAPIFeignClient
+from datacollector.WarsawAPIDataCollector import WarsawAPIDataCollector
 
 api_key = 'YOUR_API_KEY'
 client = WarsawAPIFeignClient(api_key)
+# Make 10 scrapes 1 second apart
 collector = WarsawAPIDataCollector(client, 1, 10)
 
 json_data = collector.scrape()
