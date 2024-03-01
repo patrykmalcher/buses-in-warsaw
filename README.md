@@ -1,4 +1,3 @@
-```markdown
 # Buses in Warsaw
 
 ## Description
@@ -62,4 +61,3 @@ make test
 ## Profiler
 
 The most CPU-intensive part of the project involves data analysis, particularly in identifying locations with high speeding rates. When run on approximately 200,000 data points, this calculation takes over a minute to complete.
-```
