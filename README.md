@@ -1,24 +1,22 @@
+```markdown
 # Buses in Warsaw
-
----
 
 ## Description
 
-Aim of the project is to collect information about buses in Warsaw and analyse it.
-<br>
-Project is composed of 2 parts:
-1. Data collector
-2. Data analysis
+The aim of this project is to gather and analyze information about buses in Warsaw.
 
-## Data collector
+### Project Structure
+The project consists of two main parts:
+1. Data Collector
+2. Data Analysis
 
-Data collector can be installed and used within python project.
-<br>
-It can be used to collect data and save it to the file.
+## Data Collector
+
+The Data Collector is a Python-based tool designed to fetch and store data.
 
 ### Installation
 
-```
+```bash
 make setup
 . venv/bin/activate
 pip install .
@@ -30,6 +28,7 @@ pip install .
 from datacollector.WarsawAPIFeignClient import WarsawAPIFeignClient
 from datacollector.WarsawAPIDataCollector import WarsawAPIDataCollector
 
+# Replace 'YOUR_API_KEY' with your Warsaw API key
 api_key = 'YOUR_API_KEY'
 client = WarsawAPIFeignClient(api_key)
 # Make 10 scrapes 1 second apart
@@ -41,28 +40,26 @@ with open('sample_data.json', 'w') as json_file:
     json_file.write(json_data)
 ```
 
-## Data analysis
-Processing, analysing and visualizing the data.
-<br>
-Done in the notebook. 
+## Data Analysis
 
+This part involves processing, analyzing, and visualizing the collected data, done in a Jupyter notebook.
 
----
+## Code Quality
 
-## Code quality
-
-Checked by `python3 -m flake8 src`
-
----
+To maintain code quality, the following checks and fixes are applied:
+```bash
+python3 -m flake8 src --max-line-length=120 --extend-ignore=E203,E266,E501,W503
+autopep8 --recursive --in-place --max-line-length=120 --exclude=".venv" src
+```
 
 ## Tests
 
-`make test`
-
----
+To run tests, execute:
+```bash
+make test
+```
 
 ## Profiler
 
-The most CPU consuming part of the project is part of the data analysis related to finding locations with high speeding rate.
-<br>
-Run on around 200 000 of points it takes More than a minute to finish calculation.
+The most CPU-intensive part of the project involves data analysis, particularly in identifying locations with high speeding rates. When run on approximately 200,000 data points, this calculation takes over a minute to complete.
+```
